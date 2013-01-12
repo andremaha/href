@@ -1,0 +1,3 @@
+href_shorty:
+    resource: "@HrefShortyBundle/Resources/config/routing.yml"
+    prefix:   /

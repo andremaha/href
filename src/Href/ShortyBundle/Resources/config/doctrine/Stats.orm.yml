@@ -1,0 +1,20 @@
+Href\ShortyBundle\Entity\Stats:
+    type: entity
+    table: null
+    repositoryClass: Href\ShortyBundle\Entity\StatsRepository
+    oneToOne:
+      url:
+        targetEntity: Url
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        updated:
+            type: datetime
+            length: null
+        count:
+            type: integer
+            length: null
+    lifecycleCallbacks: {  }

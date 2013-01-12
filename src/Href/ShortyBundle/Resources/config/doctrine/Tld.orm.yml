@@ -1,0 +1,17 @@
+Href\ShortyBundle\Entity\Tld:
+    type: entity
+    table: tld
+    repositoryClass: Href\ShortyBundle\Entity\TldRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: '255'
+        count:
+            type: integer
+            length: null
+    lifecycleCallbacks: {  }

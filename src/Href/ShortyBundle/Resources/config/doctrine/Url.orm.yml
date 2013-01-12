@@ -1,0 +1,20 @@
+Href\ShortyBundle\Entity\Url:
+    type: entity
+    table: url
+    oneToOne:
+      stats:
+        targetEntity: Stats
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        original:
+            type: text
+            length: null
+        generated:
+            type: string
+            length: '6'
+        created:
+            type: datetime

@@ -1,0 +1,4 @@
+Href\ShortyBundle\Entity\Url:
+  properties:
+    original:
+      - Url:

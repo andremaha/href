@@ -1,0 +1,47 @@
+{% extends 'HrefShortyBundle::layout.html.twig' %}
+
+{% block main %}
+    <h1>Generate new URL</h1>
+
+    <form action="{{ path('url_new') }}" method="post" {{ form_enctype(form) }}>
+       <p>
+        {{ form_errors(form.original) }}
+        {{ form_widget(form.original) }}
+       </p>
+
+        {{ form_rest(form) }}
+        <input type="submit" value="Continue ->" />
+    </form>
+
+    <section>
+        <header>
+            <h2>Stats</h2>
+        </header>
+        <section>
+            <article>
+                <header>
+                    <h3>Top 10 Domains</h3>
+                </header>
+                <section>
+                    <ol>
+                        {% for domain in top_domains %}
+                            <li>{{ domain.name }}</li>
+                        {% endfor %}
+                    </ol>
+                </section>
+            </article>
+            <article>
+                <header>
+                    <h3>Top 10 TLDs</h3>
+                </header>
+                <section>
+                    <ol>
+                        {% for tld in top_tlds %}
+                            <li>{{ tld.name }}</li>
+                        {% endfor %}
+                    </ol>
+                </section>
+            </article>
+        </section>
+    </section>
+{% endblock %}

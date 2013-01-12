@@ -1,0 +1,13 @@
+url_new:
+    pattern: /
+    defaults: { _controller: HrefShortyBundle:Shorty:index }
+
+url_success:
+    pattern: /success/{generated}
+    defaults: { _controller: HrefShortyBundle:Shorty:success }
+
+url_show:
+    pattern: /{generated}/{mode}
+    defaults:
+      _controller: HrefShortyBundle:Shorty:show
+      mode: show

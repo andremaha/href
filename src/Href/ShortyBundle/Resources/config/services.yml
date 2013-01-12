@@ -1,0 +1,20 @@
+parameters:
+    # href_shorty.shorteners.simple: Href\ShortyBundle\Shorteners\SimpleShortener
+    # href_shorty.shorteners.brian_cray: Href\ShortyBundle\Shorteners\BrianCrayShortener
+
+services:
+#    href_shorty.example:
+#        class: %href_shorty.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+  href_shorty.shortener.simple:
+    class: Href\ShortyBundle\Shorteners\SimpleShortener
+
+  href_shorty.shortener.brian_cray:
+    class: Href\ShortyBundle\Shorteners\BrianCrayShortener
+
+  href_shorty.shortener_listener:
+    class: Href\ShortyBundle\EventListener\UrlShortener
+    arguments: [@href_shorty.shortener.simple]
+    tags:
+      - { name: doctrine.event_listener, event: prePersist }

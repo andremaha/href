@@ -1,0 +1,22 @@
+{% extends 'HrefShortyBundle::layout.html.twig' %}
+
+{% block main %}
+    <h1>Stats for Link  http://{{ app.request.host ~ '/' ~ url.generated }}</h1>
+
+    <ul>
+        <li>
+            Link Target: <br />
+            <a href="{{ url.original }}">{{ url.original }}</a>
+        </li>
+        <li>
+            All-time Clicks: <br />
+            {{ url.stats.count|default(0) }}
+        </li>
+        {% if url.stats is not null %}
+        <li>
+            Last Click: <br />
+            {{ url.stats.updated|date("Y-m-d") }}
+        </li>
+        {% endif %}
+    </ul>
+{% endblock %}
