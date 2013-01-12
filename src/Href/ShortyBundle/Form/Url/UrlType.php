@@ -10,7 +10,9 @@ class UrlType extends AbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('original', 'text');
+        $builder->add('original', 'text', array(
+            'attr' => array('class' => 'input-xxlarge')
+        ));
     }
 
     public function getName()

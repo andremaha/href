@@ -24,16 +24,16 @@ class ShortyController extends Controller
 
             $form->bind($request);
 
-            $existingUrl = $this->getDoctrine()
-                ->getRepository('HrefShortyBundle:Url')
-                ->findOneByOriginal($url->getOriginal());
-
-
-            if ($existingUrl) {
-                return $this->redirect($this->generateUrl('url_success', array('generated' => $existingUrl->getGenerated())));
-            }
-
             if ($form->isValid()) {
+
+                $existingUrl = $this->getDoctrine()
+                    ->getRepository('HrefShortyBundle:Url')
+                    ->findOneByOriginal($url->getOriginal());
+
+
+                if ($existingUrl) {
+                    return $this->redirect($this->generateUrl('url_success', array('generated' => $existingUrl->getGenerated())));
+                }
 
                 $em = $this->getDoctrine()->getManager();
 

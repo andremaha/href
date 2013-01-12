@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}href - make 'em shorter{% endblock %}</title>
+
+        {% stylesheets
+            '@HrefShortyBundle/Resources/public/less/*'
+            filter='less'
+            output='css/styles.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}">
+        {% endstylesheets %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <header class="main_header">
+        {% block header %}
+            <h1>Make 'em shorter</h1>
+        {% endblock %}
+        </header>
+
+        <section class="main">
+        {% block main %}
+
+        {% endblock %}
+        </section>
+
+        <footer>
+        {% block footer %}
+            Copyright 2013 - Andrey Esaulov
+        {% endblock %}
+        </footer>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
