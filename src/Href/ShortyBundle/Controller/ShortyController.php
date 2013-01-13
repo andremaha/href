@@ -3,6 +3,7 @@
 namespace Href\ShortyBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Href\ShortyBundle\Entity\Stats;
 use Href\ShortyBundle\Entity\Tld;
 use Href\ShortyBundle\Entity\Domain;
@@ -135,5 +136,56 @@ class ShortyController extends Controller
         return $this->render('HrefShortyBundle:Shorty:stats.html.twig', array(
             'url' => $url
         ));
+    }
+
+    public function apiAction()
+    {
+        $original = $this->getRequest()->get('url');
+
+        $url = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:Url')
+            ->findOneByOriginal($original);
+
+
+        if ($url) {
+            return new JsonResponse(array('shortURL' => $this->generateUrl('url_show', array('generated' => $url->getGenerated()), true)));
+        } else {
+            $url = new Url();
+            $url->setOriginal($original);
+        }
+
+        $em = $this->getDoctrine()->getManager();
+
+        $urlParser = new UrlParser($url->getOriginal());
+
+        $domain = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:Domain')
+            ->findOneByName($urlParser->getDomain());
+
+        if (!$domain) {
+            $domain = new Domain();
+            $domain->setName($urlParser->getDomain());
+        }
+
+        $domain->setCount($domain->getCount() + 1);
+
+        $tld = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:Tld')
+            ->findOneByName($urlParser->getTld());
+
+        if (!$tld) {
+            $tld = new Tld();
+            $tld->setName($urlParser->getTld());
+        }
+
+        $tld->setCount($tld->getCount() + 1);
+
+
+        $em->persist($url);
+        $em->persist($domain);
+        $em->persist($tld);
+        $em->flush();
+
+        return new JsonResponse(array('shortURL' => $this->generateUrl('url_show', array('generated' => $url->getGenerated()), true)));
     }
 }

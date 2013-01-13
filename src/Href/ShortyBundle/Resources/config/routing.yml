@@ -6,8 +6,14 @@ url_success:
     pattern: /success/{generated}
     defaults: { _controller: HrefShortyBundle:Shorty:success }
 
+url_api:
+    pattern: /api
+    defaults:
+      _controller: HrefShortyBundle:Shorty:api
+
 url_show:
     pattern: /{generated}/{mode}
     defaults:
       _controller: HrefShortyBundle:Shorty:show
       mode: show
+
