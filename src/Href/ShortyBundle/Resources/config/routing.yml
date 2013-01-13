@@ -17,3 +17,8 @@ url_show:
       _controller: HrefShortyBundle:Shorty:show
       mode: show
 
+url_pages_tweetbot:
+    pattern: /pages/instructions/tweetbot
+    defaults:
+      _controller: HrefShortyBundle:Shorty:tweetbot
+

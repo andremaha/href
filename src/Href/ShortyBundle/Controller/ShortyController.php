@@ -188,4 +188,9 @@ class ShortyController extends Controller
 
         return new JsonResponse(array('shortURL' => $this->generateUrl('url_show', array('generated' => $url->getGenerated()), true)));
     }
+
+    public function tweetbotAction()
+    {
+        return $this->render('HrefShortyBundle:Shorty:tweetbot.html.twig');
+    }
 }

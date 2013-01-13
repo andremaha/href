@@ -1,3 +1,26 @@
 {% extends '::base.html.twig' %}
 
 {% block title %}HREF - URL shortener{% endblock %}
+
+{% block header %}
+    <div class="row-fluid">
+        <div class="span6">
+        {{ parent() }}
+        </div>
+        <div class="span2 offset4">
+            <ul class="nav nav-pills">
+                <li class="dropdown">
+                    <a class="dropdown-toggle"
+                       data-toggle="dropdown"
+                       href="#">
+                        API
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ path('url_pages_tweetbot') }}">TweetBoot</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock header %}
