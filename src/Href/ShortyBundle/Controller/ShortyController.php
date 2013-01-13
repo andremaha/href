@@ -36,37 +36,7 @@ class ShortyController extends Controller
                     return $this->redirect($this->generateUrl('url_success', array('generated' => $existingUrl->getGenerated())));
                 }
 
-                $em = $this->getDoctrine()->getManager();
-
-                $urlParser = new UrlParser($url->getOriginal());
-
-                $domain = $this->getDoctrine()
-                    ->getRepository('HrefShortyBundle:Domain')
-                    ->findOneByName($urlParser->getDomain());
-
-                if (!$domain) {
-                    $domain = new Domain();
-                    $domain->setName($urlParser->getDomain());
-                }
-
-                $domain->setCount($domain->getCount() + 1);
-
-                $tld = $this->getDoctrine()
-                    ->getRepository('HrefShortyBundle:Tld')
-                    ->findOneByName($urlParser->getTld());
-
-                if (!$tld) {
-                    $tld = new Tld();
-                    $tld->setName($urlParser->getTld());
-                }
-
-                $tld->setCount($tld->getCount() + 1);
-
-
-                $em->persist($url);
-                $em->persist($domain);
-                $em->persist($tld);
-                $em->flush();
+                $url = $this->processUrl($url);
 
                 return $this->redirect($this->generateUrl('url_success', array('generated' => $url->getGenerated())));
             }
@@ -154,6 +124,14 @@ class ShortyController extends Controller
             $url->setOriginal($original);
         }
 
+        $url = $this->processUrl($url);
+
+        return new JsonResponse(array('shortURL' => $this->generateUrl('url_show', array('generated' => $url->getGenerated()), true)));
+    }
+
+    public function processUrl($url)
+    {
+
         $em = $this->getDoctrine()->getManager();
 
         $urlParser = new UrlParser($url->getOriginal());
@@ -186,8 +164,9 @@ class ShortyController extends Controller
         $em->persist($tld);
         $em->flush();
 
-        return new JsonResponse(array('shortURL' => $this->generateUrl('url_show', array('generated' => $url->getGenerated()), true)));
+        return $url;
     }
+
 
     public function tweetbotAction()
     {
