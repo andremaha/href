@@ -167,7 +167,6 @@ class ShortyController extends Controller
         return $url;
     }
 
-
     public function tweetbotAction()
     {
         return $this->render('HrefShortyBundle:Shorty:tweetbot.html.twig');
