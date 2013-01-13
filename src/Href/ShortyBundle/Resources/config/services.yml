@@ -10,11 +10,11 @@ services:
   href_shorty.shortener.simple:
     class: Href\ShortyBundle\Shorteners\SimpleShortener
 
-  href_shorty.shortener.brian_cray:
-    class: Href\ShortyBundle\Shorteners\BrianCrayShortener
+  href_shorty.shortener.random:
+      class: Href\ShortyBundle\Shorteners\RandomStringShortener
 
   href_shorty.shortener_listener:
     class: Href\ShortyBundle\EventListener\UrlShortener
-    arguments: [@href_shorty.shortener.simple]
+    arguments: [@href_shorty.shortener.random]
     tags:
       - { name: doctrine.event_listener, event: prePersist }
