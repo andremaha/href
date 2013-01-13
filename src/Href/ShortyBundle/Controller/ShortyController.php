@@ -51,10 +51,15 @@ class ShortyController extends Controller
             ->getRepository('HrefShortyBundle:Tld')
             ->getTopTen();
 
+        $topStats = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:Stats')
+            ->getTopTen();
+
         return $this->render('HrefShortyBundle:Shorty:index.html.twig', array(
                 'form' => $form->createView(),
                 'top_domains' => $topDomains,
-                'top_tlds' => $topTlds
+                'top_tlds' => $topTlds,
+                'top_stats' => $topStats
             ));
     }
 

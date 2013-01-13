@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class StatsRepository extends EntityRepository
 {
+    public function getTopTen()
+    {
+        $query = $this->createQueryBuilder('s')
+            ->orderBy('s.count', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

@@ -1,6 +1,7 @@
 Href\ShortyBundle\Entity\Url:
     type: entity
     table: url
+    repositoryClass: Href\ShortyBundle\Entity\UrlRepository
     oneToOne:
       stats:
         targetEntity: Stats
