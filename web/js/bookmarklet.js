@@ -76,7 +76,7 @@ getScript('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', functio
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost/jsonp?url='+url,
+        url: 'http://hrf.li/jsonp?url='+url,
         dataType: 'jsonp',
         success: function (data) {
             shortURL += data.shortURL;
