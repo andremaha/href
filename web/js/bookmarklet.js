@@ -37,7 +37,7 @@ getScript('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js',function
 						<style type='text/css'>\
 							#hrfliframe_veil { display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(255,255,255,.25); cursor: pointer; z-index: 900; }\
 							#hrfliframe_veil p { color: black; font: normal normal bold 20px/20px Helvetica, sans-serif; position: absolute; top: 25%; left: 50%; width: 10em; margin: -10px auto 0 -5em; text-align: center; }\
-							#hrfliframe iframe { display: none; position: fixed; top: 10%; left: 10%; width: 80%; height: 35%; z-index: 900; border: 10px solid rgba(0,0,0,.5); margin: -5px 0 0 -5px; }\
+							#hrfliframe iframe { display: none; position: fixed; top: 10%; left: 10%; width: 960px; height: 35%; z-index: 900; border: 10px solid rgba(0,0,0,.5); margin: -5px 0 0 -5px; }\
 						    #hrfliframe .close { display: none; position: fixed; top: 12%; left: 83%; z-index: 999; opacity: 1; } \
 						    #hrfliframe .close a { color: #41b7d8; }\
 						</style>\
