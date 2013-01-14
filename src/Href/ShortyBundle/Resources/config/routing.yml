@@ -4,12 +4,18 @@ url_new:
 
 url_success:
     pattern: /success/{generated}
-    defaults: { _controller: HrefShortyBundle:Shorty:success }
+    defaults:
+      _controller: HrefShortyBundle:Shorty:success
 
 url_api:
     pattern: /api
     defaults:
       _controller: HrefShortyBundle:Shorty:api
+
+url_bookmarklet:
+    pattern: /bookmarklet
+    defaults:
+      _controller: HrefShortyBundle:Shorty:bookmarklet
 
 url_show:
     pattern: /{generated}/{mode}
@@ -22,3 +28,7 @@ url_pages_tweetbot:
     defaults:
       _controller: HrefShortyBundle:Shorty:tweetbot
 
+url_pages_bookmarklet:
+    pattern: /pages/instructions/bookmarklet
+    defaults:
+      _controller: HrefShortyBundle:Shorty:bookmarkletPage

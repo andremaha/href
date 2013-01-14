@@ -1,0 +1,20 @@
+{% extends 'HrefShortyBundle::layout.html.twig' %}
+
+{% block header %}
+{% endblock header %}
+
+{% block main %}
+    <h1>Your very own short URL is</h1>
+
+
+    <p>
+        <a href="{{ url('url_show', { 'generated': url, 'mode': 'show' }) }}">{{ url('url_show', { 'generated': url, 'mode': 'show' }) }}</a>
+    </p>
+
+    <p>
+        Statistics for this URL: <a href="{{ url('url_show', { 'generated': url, 'mode': 'stats' }) }}">{{ url('url_show', { 'generated': url, 'mode': 'stats' }) }}</a>
+    </p>
+{% endblock %}
+
+{% block footer %}
+{% endblock footer %}

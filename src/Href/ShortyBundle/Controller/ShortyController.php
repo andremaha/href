@@ -113,6 +113,27 @@ class ShortyController extends Controller
         ));
     }
 
+    public function bookmarkletAction()
+    {
+        $original = $this->getRequest()->get('url');
+
+        $url = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:Url')
+            ->findOneByOriginal($original);
+
+        if ($url) {
+            return $this->render('HrefShortyBundle:Shorty:success_stripped.html.twig', array('url' => $url->getGenerated()));
+        } else {
+            $url = new Url();
+            $url->setOriginal($original);
+        }
+
+        $url = $this->processUrl($url);
+
+        return $this->render('HrefShortyBundle:Shorty:success_stripped.html.twig', array('url' => $url->getGenerated()));
+
+    }
+
     public function apiAction()
     {
         $original = $this->getRequest()->get('url');
@@ -176,4 +197,10 @@ class ShortyController extends Controller
     {
         return $this->render('HrefShortyBundle:Shorty:tweetbot.html.twig');
     }
+
+    public function bookmarkletPageAction()
+    {
+        return $this->render('HrefShortyBundle:Shorty:bookmarklet.html.twig');
+    }
+
 }
