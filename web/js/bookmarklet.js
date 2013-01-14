@@ -62,8 +62,9 @@ getScript('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', functio
                                 padding-left: 0px;\
                                 padding-right: 0px;\
                                 padding-top: 0px;\
+                                color: #333;\
                             }\
-                            #hrfliframe h2 { font-size: 32px; color: #333 }\
+                            #hrfliframe h2 { font-size: 32px; }\
 						</style>\
 					</div>");
     $("#hrfliframe_veil").fadeIn(750);
