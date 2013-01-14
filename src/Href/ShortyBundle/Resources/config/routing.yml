@@ -17,6 +17,11 @@ url_bookmarklet:
     defaults:
       _controller: HrefShortyBundle:Shorty:bookmarklet
 
+url_jsonp:
+    pattern: /jsonp
+    defaults:
+      _controller: HrefShortyBundle:Shorty:jsonp
+
 url_show:
     pattern: /{generated}/{mode}
     defaults:

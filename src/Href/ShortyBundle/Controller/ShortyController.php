@@ -155,6 +155,30 @@ class ShortyController extends Controller
         return new JsonResponse(array('shortURL' => $this->generateUrl('url_show', array('generated' => $url->getGenerated()), true)));
     }
 
+    public function jsonpAction()
+    {
+
+        $original = $this->getRequest()->get('url');
+        $callback = $this->getRequest()->get('callback');
+
+        $url = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:Url')
+            ->findOneByOriginal($original);
+
+
+        if ($url) {
+            return new Response($callback . "(" . json_encode(array('shortURL' => $this->generateUrl('url_show', array('generated' => $url->getGenerated())))) . ")");
+        } else {
+            $url = new Url();
+            $url->setOriginal($original);
+        }
+
+        $url = $this->processUrl($url);
+
+        return new Response($callback . "(" . json_encode(array('shortURL' => $this->generateUrl('url_show', array('generated' => $url->getGenerated())))) . ")");
+
+    }
+
     public function processUrl($url)
     {
 
