@@ -3,7 +3,7 @@
 {% block main %}
 
     <article class="hero-unit">
-        <h1>Generate new URL</h1>
+        <h1 class="hidden-phone">Generate new URL</h1>
 
             <form action="{{ path('url_new') }}" method="post" class="url_form" {{ form_enctype(form) }}>
                 <p>
