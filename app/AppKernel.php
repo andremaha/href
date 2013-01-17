@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Href\ShortyBundle\HrefShortyBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
         );
 

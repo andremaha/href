@@ -21,6 +21,8 @@ url_jsonp:
     pattern: /jsonp
     defaults:
       _controller: HrefShortyBundle:Shorty:jsonp
+    options:
+      expose: true
 
 url_show:
     pattern: /{generated}/{mode}

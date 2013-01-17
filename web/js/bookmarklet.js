@@ -15,24 +15,9 @@ function getScript(url,success){
     head.appendChild(script);
 }
 
-getScript('http://stevenlevithan.com/demo/parseuri/js/assets/parseuri.js', function() {
 
-});
-
-getScript('http://hrf.li/js/libs/ZeroClipboard/ZeroClipboard.js', function() {
-
-});
 
 getScript('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', function(){
-
-
-
-
-    var url = encodeURIComponent(location.href);
-    var host = parseUri(url);
-    var shortURL = 'http://hrf.li';
-
-    ZeroClipboard.setDefaults( { moviePath: 'http://hrf.li/js/libs/ZeroClipboard/ZeroClipboard.swf', trustedDomains: [host.host] } );
 
 
     $("body").append("\
@@ -43,11 +28,15 @@ getScript('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', functio
 						<div id='HrefGeneratedURL'>\
 						</div>\
 						<style type='text/css'>\
+						    #hrfliframe { display: block; width: 100%; height: 100%; }\
 							#hrfliframe_veil { display: none; position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0,0,0,.4); cursor: pointer; z-index: 900; }\
 							#hrfliframe_veil p { color: #f5f5f5; font: normal normal bold 20px/20px Helvetica, sans-serif; position: absolute; top: 23%; left: 53%; width: 10em; margin: -10px auto 0 -5em; text-align: center; background: rgba(0,0,0,.8); display: block; padding: 20px; border-radius: 15px; }\
-					        #hrfliframe #HrefGeneratedURL { text-align: center; display: none; position: fixed; top: 10%; left: 30%; width: 40%; height: 20%; z-index: 900; border: 10px solid rgba(0,0,0,.5); margin: -5px 0 0 -5px; background: white; padding: 40px; border-radius: 15px; }\
-					        #hrfliframe .link { color: #41b7d8; }\
-						    #hrfliframe h1, h2 {display: block;\
+					        #hrfliframe #HrefGeneratedURL { text-align: center; display: none; position: fixed; top: 10%; left: 30%; width: 40%; height: 25%; z-index: 900; border: 10px solid rgba(0,0,0,.5); margin: -5px 0 0 -5px; background: white; padding: 30px; border-radius: 15px; }\
+					        #hrfliframe #HrefGeneratedURL:hover { cursor: pointer; }\
+					        #hrfliframe #HrefGeneratedURL.zeroclipboard-is-hover { background: #f5f5f5; }\
+					        #hrfliframe #HrefGeneratedURL.zeroclipboard-is-active { background: rgba(0,0,0,9); border: 10px solid rgba(255,255,255,.5); }\
+					        #hrfliframe .hrf_bookmarklet_generated { color: #41b7d8;  }\
+						    #hrfliframe .hrf_bookmarklet_generated, .hrf_bookmarklet_instructions {display: block;\
                                 font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;\
                                 font-size: 39px;\
                                 font-weight: bold;\
@@ -58,13 +47,9 @@ getScript('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', functio
                                 margin-left: 0px;\
                                 margin-right: 0px;\
                                 margin-top: 10px;\
-                                padding-bottom: 0px;\
-                                padding-left: 0px;\
-                                padding-right: 0px;\
-                                padding-top: 0px;\
-                                color: #333;\
                             }\
-                            #hrfliframe h2 { font-size: 32px; }\
+                            #hrfliframe .hrf_bookmarklet_instructions { font-size: 32px; color: #333; }\
+                            #hrfliframe .hrf_bookmarklet_instructions.middle { padding-top: 40px; }\
 						</style>\
 					</div>");
     $("#hrfliframe_veil").fadeIn(750);
@@ -73,17 +58,23 @@ getScript('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', functio
     $("#hrfliframe_veil").click(function(event){
         animatePopup();
     });
+});
+
+getScript('http://hrf.li/js/libs/ZeroClipboard/ZeroClipboard.js', function() {
+
+    var shortURL = 'http://hrf.li';
+    var host = getLocation(location.href);
+
+    ZeroClipboard.setDefaults( { moviePath: 'http://hrf.li/js/libs/ZeroClipboard/ZeroClipboard.swf', trustedDomains: [host.hostname] } );
 
 
     $.ajax({
         type: 'GET',
-        url: 'http://hrf.li/jsonp?url='+url,
+        url: 'http://hrf.li/jsonp?url='+location.href,
         dataType: 'jsonp',
         success: function (data) {
             shortURL += data.shortURL;
             receiveShortURL(shortURL);
-            $("#HrefGeneratedURL").html("<h1 class='link'>" + shortURL + "</h1><h2>Click to copy to clipboard</h2>")
-            $("#HrefGeneratedURL").fadeIn(750);
         },
         jsonp: 'callback'
     });
@@ -96,17 +87,27 @@ function receiveShortURL(url) {
     clip.setText(url);
     clip.glue($("#HrefGeneratedURL"));
 
+    clip.on('load', function() {
+        $("#HrefGeneratedURL").html("<div class='hrf_bookmarklet_generated'>" + url + "</div><div class='hrf_bookmarklet_instructions'>Click to copy to clipboard</div>");
+        $("#HrefGeneratedURL").fadeIn(750);
+    });
+
     clip.on('complete', function(){
-       $("#HrefGeneratedURL").html("<h1>URL was copied!</h1>");
+       $("#HrefGeneratedURL").html("<div class='hrf_bookmarklet_instructions middle'>URL was copied!</div>");
        setTimeout(animatePopup, 800);
     });
 
 
 }
 
-
 function animatePopup() {
     $("#hrfliframe_veil").hide();
     $("#HrefGeneratedURL").slideUp(500);
     setTimeout("$('#hrfliframe').remove()", 750);
+}
+
+function getLocation(href) {
+    var l = document.createElement("a");
+    l.href = href;
+    return l;
 }
