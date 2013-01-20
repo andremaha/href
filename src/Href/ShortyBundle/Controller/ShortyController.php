@@ -185,7 +185,12 @@ class ShortyController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $url->setGenerated($this->get('href_shorty.shortener.random')->shorten($url->getOriginal()));
+        // Gen the pre-generate short URL and use
+        $generated = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:Short')
+            ->getOneRandom();
+
+        $url->setGenerated($generated->getShort());
         $url->setCreated(new \DateTime());
 
         $urlParser = new UrlParser($url->getOriginal());
@@ -213,9 +218,11 @@ class ShortyController extends Controller
         $tld->setCount($tld->getCount() + 1);
 
 
+
         $em->persist($url);
         $em->persist($domain);
         $em->persist($tld);
+        $em->remove($generated);
         $em->flush();
 
         return $url;

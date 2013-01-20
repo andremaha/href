@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class ShortRepository extends EntityRepository
 {
+    public function getOneRandom()
+    {
+        $query = $this->createQueryBuilder('s')
+            ->setMaxResults(1)
+            ->getQuery();
+
+        return $query->getSingleResult();
+    }
 }
