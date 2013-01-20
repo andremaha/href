@@ -1,13 +1,13 @@
 {% extends 'HrefShortyBundle::layout.html.twig' %}
 
 {% block main %}
-    <h1>Stats for Link  <a href="{{ url('url_show', {'generated': url.generated}) }}">{{ url('url_show', {'generated': url.generated}) }}</a></h1>
+    <h1>Stats for Link  <a class="generated_url" href="{{ url('url_show', {'generated': url.generated}) }}">{{ url('url_show', {'generated': url.generated}) }}</a></h1>
 
     <dl class="dl-horizontal">
         <dt>Link Target</dt>
-        <dd><a href="{{ url.original }}">{{ url.original }}</a></dd>
+        <dd><a class="original_url" href="{{ url.original }}">{{ url.original }}</a></dd>
         <dt>All-time Clicks</dt>
-        <dd>{{ url.stats.count|default(0) }}</dd>
+        <dd class="all_time_clicks">{{ url.stats.count|default(0) }}</dd>
         {% if url.stats is not null %}
         <dt>Last Click:</dt>
         <dd>{{ url.stats.updated|date("r") }}</dd>

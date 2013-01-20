@@ -12,7 +12,7 @@
                 </p>
 
                 {{ form_rest(form) }}
-                <button type="submit" class="btn btn-primary btn-large">Continue</button>
+                <button type="submit" class="btn btn-primary btn-large" name="submit">Continue</button>
             </form>
     </article>
 
@@ -23,9 +23,9 @@
                     <h3>Top 10 Domains</h3>
                 </header>
                 <section>
-                    <ol>
+                    <ol class="top_domains">
                         {% for domain in top_domains %}
-                            <li>{{ domain.name }}</li>
+                            <li>{{ domain.name|trim }}</li>
                         {% endfor %}
                     </ol>
                 </section>
@@ -35,7 +35,7 @@
                     <h3>Top 10 TLDs</h3>
                 </header>
                 <section>
-                    <ol>
+                    <ol class="top_tlds">
                         {% for tld in top_tlds %}
                             <li>{{ tld.name }}</li>
                         {% endfor %}
@@ -47,7 +47,7 @@
                     <h3>Top 10 URLs</h3>
                 </header>
                 <section>
-                    <ol>
+                    <ol class="top_urls">
                         {% for stat in top_stats %}
                             <li><a href="{{ path('url_show', {'generated': stat.url.generated, 'mode': 'stats'}) }}" title="{{ url('url_show', {'generated': stat.url.generated, 'mode': 'stats'}) }}">{{ stat.url.original|slice(0,35) }}...</a></li>
                         {% endfor %}

@@ -1,0 +1,15 @@
+Href\ShortyBundle\Entity\Short:
+    type: entity
+    table: short
+    repositoryClass: Href\ShortyBundle\Entity\ShortRepository
+    fields:
+      id:
+        type: integer
+        id: true
+        generator:
+            strategy: AUTO
+      short:
+        type: string
+        length: '6'
+        unique: true
+    lifecycleCallbacks: {  }

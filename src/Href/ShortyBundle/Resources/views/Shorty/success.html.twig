@@ -3,12 +3,11 @@
 {% block main %}
     <h1>Your very own short URL is</h1>
 
-
     <p>
-        <a href="{{ url('url_show', { 'generated': url, 'mode': 'show' }) }}">{{ url('url_show', { 'generated': url, 'mode': 'show' }) }}</a>
+        <a class="generated_url" href="{{ url('url_show', { 'generated': url, 'mode': 'show' }) }}">{{ url('url_show', { 'generated': url, 'mode': 'show' }) }}</a>
     </p>
 
     <p>
-        Statistics for this URL: <a href="{{ url('url_show', { 'generated': url, 'mode': 'stats' }) }}">{{ url('url_show', { 'generated': url, 'mode': 'stats' }) }}</a>
+        Statistics for this URL: <a class="url_stats" href="{{ url('url_show', { 'generated': url, 'mode': 'stats' }) }}">{{ url('url_show', { 'generated': url, 'mode': 'stats' }) }}</a>
     </p>
 {% endblock %}

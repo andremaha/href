@@ -1,6 +1,11 @@
 imports:
     - { resource: config_dev.yml }
 
+doctrine:
+  dbal:
+    driver: pdo_sqlite
+    path:  %kernel.cache_dir%/test.db
+
 framework:
     test: ~
     session:

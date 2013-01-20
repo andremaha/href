@@ -16,5 +16,5 @@ services:
   href_shorty.shortener_listener:
     class: Href\ShortyBundle\EventListener\UrlShortener
     arguments: [@href_shorty.shortener.random]
-    tags:
-      - { name: doctrine.event_listener, event: prePersist }
+    #tags:
+    #  - { name: doctrine.event_listener, event: prePersist }

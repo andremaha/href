@@ -17,6 +17,7 @@ class ShortyController extends Controller
 {
     public function indexAction(Request $request)
     {
+
         $url = new Url();
 
         $form = $this->createForm(new UrlType(), $url);
@@ -183,6 +184,9 @@ class ShortyController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
+
+        $url->setGenerated($this->get('href_shorty.shortener.random')->shorten($url->getOriginal()));
+        $url->setCreated(new \DateTime());
 
         $urlParser = new UrlParser($url->getOriginal());
 

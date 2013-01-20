@@ -108,4 +108,32 @@ class Url
     {
         return $this->created;
     }
+    /**
+     * @var \Href\ShortyBundle\Entity\Stats
+     */
+    private $stats;
+
+
+    /**
+     * Set stats
+     *
+     * @param \Href\ShortyBundle\Entity\Stats $stats
+     * @return Url
+     */
+    public function setStats(\Href\ShortyBundle\Entity\Stats $stats = null)
+    {
+        $this->stats = $stats;
+    
+        return $this;
+    }
+
+    /**
+     * Get stats
+     *
+     * @return \Href\ShortyBundle\Entity\Stats 
+     */
+    public function getStats()
+    {
+        return $this->stats;
+    }
 }

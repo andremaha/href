@@ -1,6 +1,6 @@
 Href\ShortyBundle\Entity\Stats:
     type: entity
-    table: null
+    table: stats
     repositoryClass: Href\ShortyBundle\Entity\StatsRepository
     oneToOne:
       url:

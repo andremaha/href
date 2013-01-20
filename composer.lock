@@ -1,5 +1,5 @@
 {
-    "hash": "73578bc0a732484b099d9bb1829cc881",
+    "hash": "94020a05c82460758ecdb84899380437",
     "packages": [
         {
             "name": "craue/formflow-bundle",
@@ -116,6 +116,61 @@
                 "eventmanager",
                 "annotations",
                 "persistence"
+            ]
+        },
+        {
+            "name": "doctrine/data-fixtures",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/data-fixtures.git",
+                "reference": "50e7e644984f17038224f6fcd02c2b7c20147980"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/doctrine/data-fixtures/archive/50e7e644984f17038224f6fcd02c2b7c20147980.zip",
+                "reference": "50e7e644984f17038224f6fcd02c2b7c20147980",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "doctrine/common": ">=2.2,<2.5-dev"
+            },
+            "require-dev": {
+                "doctrine/orm": ">=2.2,<2.5-dev"
+            },
+            "suggest": {
+                "doctrine/orm": "For loading ORM fixtures",
+                "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
+                "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
+            },
+            "time": "2013-01-05 13:05:52",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\DataFixtures": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com",
+                    "homepage": "http://www.jwage.com/"
+                }
+            ],
+            "description": "Data Fixtures for all Doctrine Object Managers",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database"
             ]
         },
         {
@@ -252,6 +307,167 @@
             ]
         },
         {
+            "name": "doctrine/doctrine-fixtures-bundle",
+            "version": "dev-master",
+            "target-dir": "Doctrine/Bundle/FixturesBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
+                "reference": "95d1e0291878f64d376c878d9578239760cbaf73"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/doctrine/DoctrineFixturesBundle/archive/95d1e0291878f64d376c878d9578239760cbaf73.zip",
+                "reference": "95d1e0291878f64d376c878d9578239760cbaf73",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "doctrine/data-fixtures": "*",
+                "symfony/doctrine-bridge": ">=2.1.0,<2.3-dev",
+                "doctrine/doctrine-bundle": ">=1.0,<2.0"
+            },
+            "time": "2013-01-13 12:20:51",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Bundle\\FixturesBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Doctrine Project",
+                    "homepage": "http://www.doctrine-project.org"
+                }
+            ],
+            "description": "Symfony DoctrineFixturesBundle",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "persistence",
+                "Fixture"
+            ]
+        },
+        {
+            "name": "doctrine/doctrine-migrations-bundle",
+            "version": "dev-master",
+            "target-dir": "Doctrine/Bundle/MigrationsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
+                "reference": "99c0192804134a8c1d0588777bd98bdbc2dbb554"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/doctrine/DoctrineMigrationsBundle/archive/99c0192804134a8c1d0588777bd98bdbc2dbb554.zip",
+                "reference": "99c0192804134a8c1d0588777bd98bdbc2dbb554",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "doctrine/migrations": "*",
+                "symfony/framework-bundle": ">=2.1.0,<2.3-dev",
+                "doctrine/doctrine-bundle": ">=1.0,<2.0"
+            },
+            "time": "2013-01-12 20:06:22",
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Bundle\\MigrationsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Doctrine Project",
+                    "homepage": "http://www.doctrine-project.org"
+                }
+            ],
+            "description": "Symfony DoctrineMigrationsBundle",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "dbal",
+                "migrations",
+                "schema"
+            ]
+        },
+        {
+            "name": "doctrine/migrations",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/migrations",
+                "reference": "e1f6efcd94993b493de5c6a413cbc327ea9c0caa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/doctrine/migrations/archive/e1f6efcd94993b493de5c6a413cbc327ea9c0caa.zip",
+                "reference": "e1f6efcd94993b493de5c6a413cbc327ea9c0caa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "doctrine/dbal": ">=2.0,<2.5.x-dev"
+            },
+            "require-dev": {
+                "symfony/console": "2.*",
+                "symfony/yaml": "2.*"
+            },
+            "suggest": {
+                "symfony/console": "to run the migration from the console"
+            },
+            "time": "2012-12-27 16:39:29",
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\DBAL\\Migrations": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com",
+                    "homepage": "http://www.jwage.com/"
+                },
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de"
+                }
+            ],
+            "description": "Database Schema migrations using Doctrine DBAL",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database",
+                "migrations"
+            ]
+        },
+        {
             "name": "doctrine/orm",
             "version": "2.3.x-dev",
             "source": {
@@ -381,18 +597,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/jdorn/sql-formatter.git",
-                "reference": "a31cb6ffd64a8f7efa8e92f46b99fe9f990f9299"
+                "reference": "da55bd76098f872b44343ba456db868cbcac8776"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jdorn/sql-formatter/archive/a31cb6ffd64a8f7efa8e92f46b99fe9f990f9299.zip",
-                "reference": "a31cb6ffd64a8f7efa8e92f46b99fe9f990f9299",
+                "url": "https://github.com/jdorn/sql-formatter/archive/da55bd76098f872b44343ba456db868cbcac8776.zip",
+                "reference": "da55bd76098f872b44343ba456db868cbcac8776",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-01-08 17:30:08",
+            "time": "2013-01-18 07:52:11",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -681,12 +897,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle",
-                "reference": "527fd1440287e66e12df70b71406ae26f36131a1"
+                "reference": "ebb72f40c7496f156d0db67f27ad95978ed39e99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle/archive/527fd1440287e66e12df70b71406ae26f36131a1.zip",
-                "reference": "527fd1440287e66e12df70b71406ae26f36131a1",
+                "url": "https://github.com/schmittjoh/JMSSecurityExtraBundle/archive/ebb72f40c7496f156d0db67f27ad95978ed39e99.zip",
+                "reference": "ebb72f40c7496f156d0db67f27ad95978ed39e99",
                 "shasum": ""
             },
             "require": {
@@ -711,7 +927,7 @@
                 "symfony/form": "*",
                 "symfony/validator": "*"
             },
-            "time": "2012-12-09 19:12:10",
+            "time": "2013-01-18 10:09:22",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -923,12 +1139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle",
-                "reference": "6ec70b0673a489259c72041df3ad242a0d56f1a8"
+                "reference": "v2.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/KnpLabs/KnpPaginatorBundle/archive/6ec70b0673a489259c72041df3ad242a0d56f1a8.zip",
-                "reference": "6ec70b0673a489259c72041df3ad242a0d56f1a8",
+                "url": "https://github.com/KnpLabs/KnpPaginatorBundle/archive/v2.3.zip",
+                "reference": "v2.3",
                 "shasum": ""
             },
             "require": {
@@ -937,7 +1153,7 @@
                 "knplabs/knp-components": ">=1.1,<2.0",
                 "twig/twig": ">=1.5,<2.0"
             },
-            "time": "2013-01-17 19:53:45",
+            "time": "2013-01-18 17:41:27",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1221,18 +1437,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/schmittjoh/php-option",
-                "reference": "7c3d959ac1ab7677cca6463dbb7d443ef9eea8ed"
+                "reference": "617bd84bf0d918da79b06ac6765b5390b83b1321"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/schmittjoh/php-option/archive/7c3d959ac1ab7677cca6463dbb7d443ef9eea8ed.zip",
-                "reference": "7c3d959ac1ab7677cca6463dbb7d443ef9eea8ed",
+                "url": "https://github.com/schmittjoh/php-option/archive/617bd84bf0d918da79b06ac6765b5390b83b1321.zip",
+                "reference": "617bd84bf0d918da79b06ac6765b5390b83b1321",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
-            "time": "2012-12-07 09:34:13",
+            "time": "2013-01-19 11:01:32",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1355,19 +1571,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioFrameworkExtraBundle",
-                "reference": "d40f6176d4dae9b8f0f7a1ca7e11dbfca77e8041"
+                "reference": "15e312243b3e3e958ce2105f15330d4304134765"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/archive/d40f6176d4dae9b8f0f7a1ca7e11dbfca77e8041.zip",
-                "reference": "d40f6176d4dae9b8f0f7a1ca7e11dbfca77e8041",
+                "url": "https://github.com/sensio/SensioFrameworkExtraBundle/archive/15e312243b3e3e958ce2105f15330d4304134765.zip",
+                "reference": "15e312243b3e3e958ce2105f15330d4304134765",
                 "shasum": ""
             },
             "require": {
-                "doctrine/common": ">=2.1,<2.4-dev",
-                "symfony/framework-bundle": "2.2.*"
+                "symfony/framework-bundle": "2.2.*",
+                "doctrine/common": ">=2.1,<2.5-dev"
             },
-            "time": "2013-01-14 13:23:49",
+            "time": "2013-01-19 07:42:06",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1402,12 +1618,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensio/SensioGeneratorBundle",
-                "reference": "v2.2.0-BETA1"
+                "reference": "5adbe8b38f9a16461fa13f2ed587967e8e989b35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sensio/SensioGeneratorBundle/archive/v2.2.0-BETA1.zip",
-                "reference": "v2.2.0-BETA1",
+                "url": "https://github.com/sensio/SensioGeneratorBundle/archive/5adbe8b38f9a16461fa13f2ed587967e8e989b35.zip",
+                "reference": "5adbe8b38f9a16461fa13f2ed587967e8e989b35",
                 "shasum": ""
             },
             "require": {
@@ -1422,7 +1638,7 @@
             "suggest": {
                 "doctrine/doctrine-bundle": "to generate entities and their crud controller"
             },
-            "time": "2013-01-07 16:52:43",
+            "time": "2013-01-18 06:54:44",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1677,12 +1893,12 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/symfony/symfony.git",
-                "reference": "1f762c77230d675158f7c6b29d6eb2a8250eb728"
+                "reference": "6923a484c299a4d26a03584af45d0b94cf87a529"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/symfony/symfony/archive/1f762c77230d675158f7c6b29d6eb2a8250eb728.zip",
-                "reference": "1f762c77230d675158f7c6b29d6eb2a8250eb728",
+                "url": "https://github.com/symfony/symfony/archive/6923a484c299a4d26a03584af45d0b94cf87a529.zip",
+                "reference": "6923a484c299a4d26a03584af45d0b94cf87a529",
                 "shasum": ""
             },
             "require": {
@@ -1736,7 +1952,7 @@
             "suggest": {
                 "doctrine/data-fixtures": "1.0.*"
             },
-            "time": "2013-01-17 15:25:59",
+            "time": "2013-01-19 07:50:02",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1825,18 +2041,18 @@
             "source": {
                 "type": "git",
                 "url": "git://github.com/fabpot/Twig.git",
-                "reference": "3225226e0be466395414da4b362013531eedb580"
+                "reference": "93c6a8dedc46c73ccdd61342de3d5e761e4412f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/fabpot/Twig/archive/3225226e0be466395414da4b362013531eedb580.zip",
-                "reference": "3225226e0be466395414da4b362013531eedb580",
+                "url": "https://github.com/fabpot/Twig/archive/93c6a8dedc46c73ccdd61342de3d5e761e4412f6.zip",
+                "reference": "93c6a8dedc46c73ccdd61342de3d5e761e4412f6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2013-01-16 13:37:25",
+            "time": "2013-01-18 09:58:04",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1904,6 +2120,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "symfony/symfony": 20,
+        "doctrine/doctrine-fixtures-bundle": 20,
+        "doctrine/doctrine-migrations-bundle": 20,
         "mopa/bootstrap-bundle": 20,
         "twitter/bootstrap": 20,
         "knplabs/knp-paginator-bundle": 20,
