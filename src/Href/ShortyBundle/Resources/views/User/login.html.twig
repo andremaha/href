@@ -1,0 +1,28 @@
+{% extends 'HrefShortyBundle::layout.html.twig' %}
+
+{% block main %}
+    <article class="hero-unit">
+        <h1 class="hidden-phone">Login</h1>
+
+
+        <form class="form-horizontal" action="{{ path('login_check') }}" method="post">
+            <div class="control-group">
+                <label class="control-label" for="username">Username</label>
+                <div class="controls">
+                    <input type="text" id="username" placeholder="Username" name="_username" value="{{ last_username }}">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputPassword">Password</label>
+                <div class="controls">
+                    <input type="password" id="password" name="_password" placeholder="Password">
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="btn">Sign in</button>
+                </div>
+            </div>
+        </form>
+    </article>
+{% endblock main %}

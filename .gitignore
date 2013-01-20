@@ -1,5 +1,6 @@
 *~
 app/config/parameters.yml
+app/config/security.yml
 web/bundles/
 app/bootstrap.php.cache
 app/cache/*

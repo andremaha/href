@@ -24,6 +24,7 @@ class AppKernel extends Kernel
             new Href\ShortyBundle\HrefShortyBundle(),
             new Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
 
         );
 

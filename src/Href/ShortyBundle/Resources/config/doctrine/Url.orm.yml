@@ -5,6 +5,13 @@ Href\ShortyBundle\Entity\Url:
     oneToOne:
       stats:
         targetEntity: Stats
+    manyToOne:
+      user:
+        targetEntity: User
+        inversedBy: urls
+        joinColumn:
+          name: user_id
+          referencedColumn: id
     fields:
         id:
             type: integer

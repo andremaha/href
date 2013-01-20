@@ -21,4 +21,14 @@ class UrlRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function getLastTen()
+    {
+        $query = $this->createQueryBuilder('u')
+            ->orderBy('u.created', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery();
+
+        return $query->getResult();
+    }
 }

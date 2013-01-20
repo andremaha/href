@@ -190,6 +190,10 @@ class ShortyController extends Controller
             ->getRepository('HrefShortyBundle:Short')
             ->getOneRandom();
 
+        if ($this->getUser()) {
+            $url->setUser($this->getUser());
+        }
+
         $url->setGenerated($generated->getShort());
         $url->setCreated(new \DateTime());
 

@@ -136,4 +136,32 @@ class Url
     {
         return $this->stats;
     }
+    /**
+     * @var \Href\ShortyBundle\Entity\User
+     */
+    private $user;
+
+
+    /**
+     * Set user
+     *
+     * @param \Href\ShortyBundle\Entity\User $user
+     * @return Url
+     */
+    public function setUser(\Href\ShortyBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Href\ShortyBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

@@ -1,3 +1,8 @@
+url_admin:
+    pattern: /profile/links
+    defaults:
+      _controller: HrefShortyBundle:Admin:index
+
 url_new:
     pattern: /
     defaults: { _controller: HrefShortyBundle:Shorty:index }
@@ -39,3 +44,4 @@ url_pages_bookmarklet:
     pattern: /pages/instructions/bookmarklet
     defaults:
       _controller: HrefShortyBundle:Shorty:bookmarkletPage
+

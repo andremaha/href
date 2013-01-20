@@ -1,0 +1,15 @@
+Href\ShortyBundle\Entity\User:
+    type: entity
+    table: fos_user
+    repositoryClass: Href\ShortyBundle\Entity\UserRepository
+    oneToMany:
+      urls:
+        targetEntity: Url
+        mappedBy: user
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }
