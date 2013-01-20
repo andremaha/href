@@ -2,20 +2,7 @@
 
 {% block main %}
     <section class="raw-fluid">
-        <article class="span3">
-            <header>
-                <h3>Last 10 Users</h3>
-            </header>
-            <section>
-                <ol class="top_urls">
-                    {% for user in last_users %}
-                        <li>{{ user }} ({{ user.email }})</li>
-                    {% endfor %}
-                </ol>
-            </section>
-        </article>
-
-        <article class="span3">
+            <article class="span3">
                 <header>
                     <h3>Last 10 URLs</h3>
                 </header>
@@ -26,6 +13,6 @@
                         {% endfor %}
                     </ol>
                 </section>
-        </article>
+            </article>
     </section>
 {% endblock main %}

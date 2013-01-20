@@ -1,5 +1,9 @@
-url_admin:
+url_profile_links:
     pattern: /profile/links
+    defaults:
+      _controller: HrefShortyBundle:User:profile
+url_admin:
+    pattern: /admin
     defaults:
       _controller: HrefShortyBundle:Admin:index
 

@@ -9,10 +9,17 @@ class AdminController extends Controller
 {
     public function indexAction()
     {
-        $lastURLs = $this->getUser()->getUrls();
+        $lastURLs = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:Url')
+            ->getLastTen();
+
+        $lastUsers = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:User')
+            ->findAll();
 
         return $this->render('HrefShortyBundle:Admin:index.html.twig', array(
-                'last_urls' => $lastURLs
-        ));
+                'last_urls' => $lastURLs,
+                'last_users' => $lastUsers
+            ));
     }
 }

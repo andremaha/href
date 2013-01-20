@@ -31,4 +31,13 @@ class UserController extends Controller
             )
         );
     }
+
+    public function profileAction()
+    {
+        $lastURLs = $this->getUser()->getUrls();
+
+        return $this->render('HrefShortyBundle:User:index.html.twig', array(
+                'last_urls' => $lastURLs
+            ));
+    }
 }
