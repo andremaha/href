@@ -80,6 +80,7 @@
      #}
     {% javascripts
         'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'
+        '@HrefShortyBundle/Resources/public/libs/*'
         '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-transition.js'
         '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-modal.js'
         '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-dropdown.js'
@@ -98,6 +99,7 @@
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
         <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 {% endblock foot_script %}
