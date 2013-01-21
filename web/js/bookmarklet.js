@@ -60,7 +60,7 @@ getScript('http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', functio
     });
 });
 
-getScript('http://hrf.li/js/libs/ZeroClipboard/ZeroClipboard.js', function() {
+getScript('http://hrf.li/js/libs/ZeroClipboard/ZeroClipboard.min.js', function() {
 
     var shortURL = 'http://hrf.li';
     var host = getLocation(location.href);
