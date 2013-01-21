@@ -2,6 +2,7 @@
 
 {% block main %}
     <section class="raw-fluid">
+        {% if last_urls is not empty %}
             <article class="span3">
                 <header>
                     <h3>My last URLs</h3>
@@ -14,5 +15,14 @@
                     </ol>
                 </section>
             </article>
+        {% include 'HrefShortyBundle:User/Partials:statswidget.html.twig' %}
+        {% else %}
+        <article class="span12">
+            <header>
+                <h3>Shorten URLs on the <a href="{{ path('url_new') }}">homepage</a> or with the <a href="{{ path('url_pages_bookmarklet') }}">bookmarklet</a> to see the statistics here.</h3>
+            </header>
+        </article>
+        {% endif %}
     </section>
+
 {% endblock main %}

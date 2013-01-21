@@ -39,7 +39,10 @@ class UserController extends Controller
             ->getSortedByDate($this->getUser()->getId());
 
         return $this->render('HrefShortyBundle:User:index.html.twig', array(
-            'last_urls' => $lastURLs
+            'last_urls' => $lastURLs,
+            'colors'    => array(
+                '#0DA068', '#194E9C', '#ED9C13', '#ED5713', '#057249', '#5F91DC', '#F88E5D'
+            )
         ));
     }
 }

@@ -1,0 +1,20 @@
+<div id="container" class="span12">
+    <header>
+        <h3>Clicks per URL</h3>
+    </header>
+    <canvas id="chart" width="600" height="500"></canvas>
+
+    <table id="chartData">
+
+        <tr>
+            <th>Url</th><th>Clicks</th>
+        </tr>
+
+        {% for id, url in last_urls %}
+            <tr style="color: {{ colors[id] }}}">
+                <td>{{ url.original|slice(0,35) }}</td><td>{{ url.stats.count|default(0) }}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+</div>
