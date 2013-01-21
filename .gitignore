@@ -1,6 +1,7 @@
 *~
 app/config/parameters.yml
 app/config/security.yml
+app/config/deploy.rb
 web/bundles/
 app/bootstrap.php.cache
 app/cache/*
@@ -10,3 +11,5 @@ vendor
 bin
 composer.phar
 composer.lock
+.idea
+Capfile

@@ -31,4 +31,14 @@ class UrlRepository extends EntityRepository
 
         return $query->getResult();
     }
+
+    public function getSortedByDate($user_id)
+    {
+        return $this->createQueryBuilder('url')
+            ->leftJoin('url.user', 'user')
+            ->where('user.id = :id')
+            ->setParameter('id', $user_id)
+            ->orderBy('url.created', 'DESC')
+            ->getQuery()->getResult();
+    }
 }

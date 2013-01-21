@@ -34,10 +34,12 @@ class UserController extends Controller
 
     public function profileAction()
     {
-        $lastURLs = $this->getUser()->getUrls();
+        $lastURLs = $this->getDoctrine()
+            ->getRepository('HrefShortyBundle:Url')
+            ->getSortedByDate($this->getUser()->getId());
 
         return $this->render('HrefShortyBundle:User:index.html.twig', array(
-                'last_urls' => $lastURLs
-            ));
+            'last_urls' => $lastURLs
+        ));
     }
 }
