@@ -8,7 +8,7 @@
         {{ parent() }}
         </div>
 
-        <div class="span3 offset3">
+        <div class="span4 offset2">
             <ul class="nav nav-pills">
                 <li>
                     <a href="{{ path('url_pages_bookmarklet') }}">Bookmarklet</a>
@@ -24,6 +24,33 @@
                         <li><a href="{{ path('url_pages_tweetbot') }}">TweetBot</a></li>
                     </ul>
                 </li>
+                {% if is_granted('ROLE_USER') %}
+                    <li class="dropdown">
+                        <a class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           href="#">
+                            {{ app.user }}
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('url_profile_links') }}">My Links</a></li>
+                            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="dropdown">
+                        <a class="dropdown-toggle"
+                           data-toggle="dropdown"
+                           href="#">
+                            Log In
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ path('fos_user_security_login') }}">Log In</a></li>
+                            <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
             </ul>
         </div>
     </div>
