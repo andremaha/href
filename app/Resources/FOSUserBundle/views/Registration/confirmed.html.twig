@@ -2,7 +2,11 @@
 
 
 {% block main %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
+    <article class="hero-unit" xmlns="http://www.w3.org/1999/html">
+        <h1 class="hidden-phone">Welcome, {{ user.username }}!</h1>
+        <p>Now you can shorten the URLs on the <a href="{{ path('url_new') }}">homepage</a> or using the wonderful <a href="{{ path('url_pages_bookmarklet') }}">bookmarklet!</a></p>
+        <p>You can also see the <a href="{{ path('url_profile_links') }}">visual click statistics</a> of the URLs you've shortened.</p>
+    </article>
     {% if app.session is not empty %}
         {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
         {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans({}, 'FOSUserBundle') }}</a></p>{% endif %}
