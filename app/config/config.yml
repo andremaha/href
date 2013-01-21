@@ -67,3 +67,6 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: Href\ShortyBundle\Entity\User
+    registration:
+      form:
+        name: "Registration"

@@ -1,0 +1,8 @@
+    <form class="form-horizontal" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+        {{ form_widget(form, {'form_type': 'horizontal'}) }}
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn">{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}</button>
+            </div>
+        </div>
+    </form>
