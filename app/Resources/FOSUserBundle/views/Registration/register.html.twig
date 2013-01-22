@@ -6,5 +6,24 @@
 {% endblock title %}
 
 {% block main %}
-{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+    <section class="raw-fluid">
+        <article class="span6">
+            {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+        </article>
+        <article class="span6">
+            <header>
+                <h4>Why?</h4>
+            </header>
+            <ul>
+                <li>Organize your URLs</li>
+                <li>See all the URLs you've ever shortened</li>
+                <li>Enjoy customized click statistics widget</li>
+            </ul>
+            {% image output="/images/stats-for-urls.png"
+                '@HrefShortyBundle/Resources/public/images/stats-for-urls.png'
+            %}
+                <img width="200px" src="{{ asset_url }}" alt="Statistics Widget on Your Profile Page" />
+            {% endimage %}
+        </article>
+    </section>
 {% endblock main %}
