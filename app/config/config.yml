@@ -27,6 +27,11 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
+    filters:
+                cssrewrite: ~
+                less:
+                  node: %node.path%
+                  node_paths: %node.modules.path%
     #bundles:        [ ]
     #java: /usr/bin/java
     #filters:

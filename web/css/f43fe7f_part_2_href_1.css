@@ -1,0 +1,18 @@
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 960px;
+}
+.main .hero-unit h1 {
+  margin-bottom: 20px;
+}
+.main .hero-unit .url_form input {
+  width: 100%;
+  height: 30px;
+}
+.main .hero-unit .content {
+  text-align: center;
+}
+.main .hero-unit .label a {
+  color: white;
+}

@@ -21,11 +21,6 @@ monolog:
 
 assetic:
     use_controller: true
-    filters:
-            cssrewrite: ~
-            less:
-              node: /usr/local/bin/node
-              node_paths: [/usr/local/bin/node, /usr/local/share/npm/lib/node_modules/]
 
 #swiftmailer:
 #    delivery_address: me@example.com

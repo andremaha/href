@@ -78,6 +78,16 @@
     To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
     Otherwise the regeneration is done on every load in dev more with use_controller: true
      #}
+
+    <script type="text/javascript">
+        {% image output="/images/stats-for-urls-big.png"
+               '@HrefShortyBundle/Resources/public/images/stats-for-urls-big.png'
+        %}
+        var largePromoImage = "{{ asset_url }}";
+        {% endimage %}
+        console.log(largePromoImage);
+    </script>
+
     {% javascripts
         'http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'
         '@HrefShortyBundle/Resources/public/libs/*'
@@ -98,6 +108,7 @@
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
+
 
         <script type="text/javascript" src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
