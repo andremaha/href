@@ -10,7 +10,7 @@
                 <section>
                     <ol class="top_urls">
                         {% for url in last_urls %}
-                            <li><a href="{{ path('url_show', {'generated': url.generated, 'mode': 'stats'}) }}" title="{{ url('url_show', {'generated': url.generated, 'mode': 'stats'}) }}">{{ url.original|slice(0,35) }}...</a><em class="hidden">{{ url.original }}</em><strong class="hidden">{{ url.stats.count|default(0) }}</strong></li>
+                            <li><a href="{{ path('url_show', {'generated': url.generated, 'mode': 'stats'}) }}" title="{{ url('url_show', {'generated': url.generated, 'mode': 'stats'}) }}">{{ url('url_show', {'generated': url.generated})  }}</a> | <em class="hidden">{{ url.original }}</em> | <strong class="hidden">{{ url.stats.count|default(0) }}</strong></li>
                         {% endfor %}
                     </ol>
                 </section>
