@@ -1,4 +1,4 @@
-$(function () {
+jQuery(document).ready(function($){
     var chart;
     $(document).ready(function() {
         chart = new Highcharts.Chart({
