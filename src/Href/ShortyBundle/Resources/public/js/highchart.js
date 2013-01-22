@@ -41,8 +41,8 @@ jQuery(document).ready(function($){
 function getDataFromList() {
     var data = [];
     jQuery.each(jQuery('.top_urls li'), function(index, value) {
-        var name = jQuery(value).find('em').text();
-        var count = parseInt(jQuery(value).find('strong').text(), 10);
+        var name = jQuery(value).find('.original_url').text();
+        var count = parseInt(jQuery(value).find('.all_time_clicks').text(), 10);
         if (count > 0) {
             data.push([name, count]);
         }

@@ -10,7 +10,18 @@
                 <section>
                     <ol class="top_urls">
                         {% for url in last_urls %}
-                            <li><a href="{{ path('url_show', {'generated': url.generated, 'mode': 'stats'}) }}" title="{{ url('url_show', {'generated': url.generated, 'mode': 'stats'}) }}">{{ url('url_show', {'generated': url.generated})  }}</a> | <em class="hidden">{{ url.original }}</em> | <strong class="hidden">{{ url.stats.count|default(0) }}</strong></li>
+                            <li><a href="{{ path('url_show', {'generated': url.generated, 'mode': 'stats'}) }}" title="{{ url('url_show', {'generated': url.generated, 'mode': 'stats'}) }}">{{ url('url_show', {'generated': url.generated})  }}</a>
+                                <dl class="dl-horizontal">
+                                    <dt>Link Target</dt>
+                                    <dd><a class="original_url" href="{{ url.original }}">{{ url.original }}</a></dd>
+                                    <dt>All-time Clicks</dt>
+                                    <dd class="all_time_clicks">{{ url.stats.count|default(0) }}</dd>
+                                    {% if url.stats is not null %}
+                                        <dt>Last Click:</dt>
+                                        <dd>{{ url.stats.updated|date("r") }}</dd>
+                                    {% endif %}
+                                </dl>
+                            </li>
                         {% endfor %}
                     </ol>
                 </section>
