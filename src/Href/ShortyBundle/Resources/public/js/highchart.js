@@ -24,7 +24,7 @@ $(function () {
                         color: '#000000',
                         connectorColor: '#000000',
                         formatter: function() {
-                            return '<b>'+ this.point.name +'</b>: '+ this.percentage +' %';
+                            return '<b>'+ this.point.name +'</b>: '+ Math.round(this.percentage) +' %';
                         }
                     }
                 }
@@ -42,8 +42,10 @@ function getDataFromList() {
     var data = [];
     $.each($('.top_urls li'), function(index, value) {
         var name = $(value).find('em').text();
-        var count = $(value).find('strong').text();
-        data.push([name, parseInt(count, 10)]);
+        var count = parseInt($(value).find('strong').text(), 10);
+        if (count > 0) {
+            data.push([name, count]);
+        }
     });
 
     return data;
