@@ -1,3 +1,5 @@
+[ ![Codeship Status for andremaha/href](https://www.codeship.io/projects/081426a0-3759-0132-1435-4e00c89963c9/status)](https://www.codeship.io/projects/41625)
+
 # Generate short HREFs with ease
 
 Project is live and is located under [http://hrf.li](http://hrf.li).
